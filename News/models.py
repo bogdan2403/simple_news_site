@@ -10,7 +10,10 @@ class Article(models.Model):
     is_published = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.title
+        if self.is_published:
+            return self.title + '    (*)'
+        else:
+            return self.title
 
     def sort_info(self):
         return self.text[:250] + '...'
