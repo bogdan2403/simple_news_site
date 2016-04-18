@@ -1,0 +1,16 @@
+{% extends 'news/base.html' %}
+{% load staticfiles %}
+{% block title %}News{% endblock %}
+{% block content %}
+<div id="news_body">
+    {% if article %}
+        <h1>{{ article.title }}</h1>
+        <hr>
+        <img class="img-responsive" src="{{ article.image.url }}" alt="" width="50%" id="pic_in_news">
+        <p>{{ article.text }}</p>
+        <hr>
+    {% else %}
+        <h1>We don't have news</h1>
+    {% endif %}
+</div>
+{% endblock %}

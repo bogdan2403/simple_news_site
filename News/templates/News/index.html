@@ -1,0 +1,35 @@
+{% extends 'news/base.html' %}
+{% load staticfiles %}
+{% block title %}News{% endblock %}
+{% block content %}
+    <script>
+        $(function () {
+            $('#more_article').click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: 'ajax/',
+                    success: function (data) {
+                        $('#news').append(data);
+                    }
+                });
+            });
+        });
+    </script>
+    <div id="news">
+    {% if articles %}
+            {% for a in articles %}
+                <div class="some_news">
+                    <h1><a href="/news/{{ a.pk }}" style="color: black">{{ a.title }}</a></h1>
+                    <img src="{{ a.image.url }}" width="50%" class="image_news"/>
+                    <p class="info">{{ a.sort_info }}</p>
+                    <div class="button"><a href="/news/{{ a.pk }}">Дальше</a></div>
+                </div>
+            {% endfor %}
+        </div>
+        <div style="margin: 15px;">
+            <button id="more_article" class="btn btn-mini btn-primary" type="button">Показать еще</button>
+        </div>
+    {% else %}
+        <h1>We don't have news</h1>
+    {% endif %}
+{% endblock %}

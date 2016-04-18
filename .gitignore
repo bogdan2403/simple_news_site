@@ -1,0 +1,4 @@
+.idea/
+News/__pycache__/
+News/migrations/__pycache__/
+simple_news_site/__pycache__/

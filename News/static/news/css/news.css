@@ -1,0 +1,54 @@
+/*!
+ * Start Bootstrap - Blog Post HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px;
+    background-color: #E0E1E2;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.some_news {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 15px;
+}
+
+.image_news {
+    margin: 8px;
+}
+.info{
+    margin: 8px;
+
+}
+h1 {
+    margin: 10px;
+}
+#news_body{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+}
+p{
+    margin: 25px;
+}
+#pic_in_news{
+    margin-left: 25px;
+}
+.button{
+    background-color: #1b6d85;
+    width: auto;
+    height: 25px;
+}
+.button a {
+    margin: 20px;
+    color: white;
+    font: 22px Arial;
+}
+p{
+    font: 20px Verdana, Arial, sans-serif;
+}

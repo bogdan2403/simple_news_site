@@ -1,0 +1,15 @@
+{% if article %}
+    {% for a in article %}
+        <div class="some_news">
+            <h1>
+                <a href="/news/{{ a.pk }}" style="color: black">{{ a.title }}</a></h1>
+                <img src="{{ a.image.url }}" width="50%" class="image_news"/>
+                <p class="info">{{ a.sort_info }}</p>
+            <div class="button"><a href="/news/{{ a.pk }}">Дальше</a></div>
+        </div>
+    {% endfor %}
+{% else %}
+    <script>
+        $('#more_article').fadeOut(1000)
+    </script>
+{% endif %}
