@@ -4,12 +4,14 @@
 {% block content %}
     <script>
         $(function () {
+            count = 2;
             $('#more_article').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: 'ajax/',
+                    url: 'ajax/'+count,
                     success: function (data) {
                         $('#news').append(data);
+                        count += 1;
                     }
                 });
             });

@@ -6,7 +6,6 @@ from News.models import Article
 
 
 def index(request):
-    num.page = 1
     article_on_page = num.pages(Article.objects.all().filter(is_published=True))
     context = {
         'articles': article_on_page,
@@ -22,10 +21,9 @@ def news(request, id):
     return render(request, 'news/news.html', context)
 
 
-def ajax(request):
+def ajax(request, count):
     if request.is_ajax():
-        num.page += 1
-        article_on_page = num.pages(Article.objects.all().filter(is_published=True))
+        article_on_page = num.pages(Article.objects.all().filter(is_published=True), int(count))
         context = {
             'article': article_on_page,
         }
