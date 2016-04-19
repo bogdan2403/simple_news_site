@@ -1,6 +1,6 @@
 {% extends 'news/base.html' %}
 {% load staticfiles %}
-{% block title %}News{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
 {% block content %}
 <div id="news_body">
     {% if article %}
