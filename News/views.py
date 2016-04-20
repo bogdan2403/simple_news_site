@@ -10,7 +10,7 @@ def index(request):
     context = {
         'articles': article_on_page,
     }
-    return render(request, 'news/index.html', context)
+    return render(request, 'News/index.html', context)
 
 
 def news(request, id):
@@ -18,7 +18,7 @@ def news(request, id):
     context = {
         'article': article,
     }
-    return render(request, 'news/news.html', context)
+    return render(request, 'News/news.html', context)
 
 
 def ajax(request, count):
@@ -27,6 +27,6 @@ def ajax(request, count):
         context = {
             'article': article_on_page,
         }
-        return render(request, 'news/ajax.html', context)
+        return render(request, 'News/ajax.html', context)
     else:
         raise Http404
