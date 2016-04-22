@@ -1,12 +1,15 @@
 from django.http import Http404
 from django.shortcuts import render
+from django.core.paginator import Paginator
 
-from News import num
+
 from News.models import Article
 
 
 def index(request):
-    article_on_page = num.pages(Article.objects.all().filter(is_published=True))
+    all_article = Article.objects.all().filter(is_published=True)
+    all_article = Paginator(all_article, 5)
+    article_on_page = all_article.page(1)
     context = {
         'articles': article_on_page,
     }
@@ -21,9 +24,11 @@ def news(request, id):
     return render(request, 'News/news.html', context)
 
 
-def ajax(request, count):
+def ajax(request, page):
     if request.is_ajax():
-        article_on_page = num.pages(Article.objects.all().filter(is_published=True), int(count))
+        all_article = Article.objects.all().filter(is_published=True)
+        all_article = Paginator(all_article, 5)
+        article_on_page = all_article.page(page)
         context = {
             'article': article_on_page,
         }
