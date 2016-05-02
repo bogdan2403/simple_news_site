@@ -1,7 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render
-from django.core.paginator import Paginator
-
+from django.core.paginator import Paginator, EmptyPage
 
 from News.models import Article
 
@@ -28,7 +27,10 @@ def ajax(request, page):
     if request.is_ajax():
         all_article = Article.objects.all().filter(is_published=True)
         all_article = Paginator(all_article, 5)
-        article_on_page = all_article.page(page)
+        try:
+            article_on_page = all_article.page(page)
+        except EmptyPage:
+            article_on_page = 0
         context = {
             'article': article_on_page,
         }
